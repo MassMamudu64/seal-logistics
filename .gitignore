@@ -1,0 +1,15 @@
+node_modules
+.next
+.turbo
+.vercel
+dist
+coverage
+.env
+.env.local
+.env.*.local
+playwright-report
+test-results
+.lighthouseci
+*.tsbuildinfo
+*.log
+.DS_Store

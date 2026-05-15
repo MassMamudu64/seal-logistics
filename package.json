@@ -1,0 +1,25 @@
+{
+  "name": "seal-logistics",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@9.12.0",
+  "engines": {
+    "node": ">=20.11.0"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @seal/site dev",
+    "build": "pnpm --filter @seal/site build",
+    "start": "pnpm --filter @seal/site start",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test",
+    "test:e2e": "pnpm --filter @seal/site test:e2e",
+    "lhci": "pnpm --filter @seal/site lhci",
+    "format": "prettier --write \"**/*.{ts,tsx,js,json,md,css}\""
+  },
+  "devDependencies": {
+    "prettier": "3.3.3",
+    "prettier-plugin-tailwindcss": "0.6.8",
+    "typescript": "5.6.3"
+  }
+}

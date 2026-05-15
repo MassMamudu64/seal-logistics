@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-focus: theme(colors.brand.500);
+    --shadow-bloom: 0 24px 60px -20px rgba(15, 23, 42, 0.18);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+    /* Anchor scroll targets clear the fixed nav. */
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-white text-neutral-900 antialiased;
+    font-feature-settings: 'ss01', 'cv11', 'cv03';
+    /* Stable scrollbar gutter prevents layout shift when modals open. */
+    scrollbar-gutter: stable;
+  }
+
+  ::selection {
+    background-color: theme(colors.accent.500 / 30%);
+    color: theme(colors.neutral.900);
+  }
+
+  /* Subtle custom scrollbar — WebKit only. Firefox uses default OS chrome. */
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: theme(colors.neutral.300);
+    border: 3px solid white;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: theme(colors.neutral.400);
+  }
+
+  /* Single keyboard-focus style across all interactive elements. */
+  :focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Reduced motion: hard-disable transitions/animations decoration-wide. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Generic prose-on-dark — used in dark editorial sections, modals on the
+     deep brand background. Keeps link colors consistent. */
+  .prose-invert-brand a {
+    color: theme(colors.accent.400);
+    text-underline-offset: 4px;
+  }
+  .prose-invert-brand a:hover {
+    color: theme(colors.accent.300);
+  }
+
+  /* Marquee-safe stable text widths for stat counters. */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
